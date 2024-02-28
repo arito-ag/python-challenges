@@ -30,27 +30,30 @@
     Sample Output:
     200
 """
-shoe_amount = int(input("Shoe amount in the shop: ")) # X
-size_list = []
 
-shoe_sizes_input = input("Enter list of shoe sizes separated by space: ")
-shoe_sizes_str = shoe_sizes_input.split()
-shoe_sizes_int = [int(size) for size in shoe_sizes_str]
+def get_sales_amount():
+    shoe_amount = int(input("Shoe amount in the shop: ")) # X
+    size_list = []
 
-customers = int(input("Customers: ")) # N
+    shoe_sizes_input = input("Enter list of shoe sizes separated by space: ")
+    shoe_sizes_str = shoe_sizes_input.split()
+    shoe_sizes_int = [int(size) for size in shoe_sizes_str]
 
-amount = 0
-for i in range(1,customers + 1):
-    buy_input = input("Shoe size desired and price (separated by space): ")
-    buy_str = buy_input.split()
-    buy_int = [int(i) for i in buy_str]
-    
-    if buy_int[0] in shoe_sizes_int:
-        shoe_sizes_int.remove(buy_int[0])
-        amount += buy_int[1]
-    else:
-        continue
+    customers = int(input("Customers: ")) # N
 
-print(f"The amount of money earned by Raghu is: ${amount}")
+    amount = 0
+    for i in range(1,customers + 1):
+        buy_input = input("Shoe size desired and price (separated by space): ")
+        buy_str = buy_input.split()
+        buy_int = [int(i) for i in buy_str]
+        
+        if buy_int[0] in shoe_sizes_int:
+            shoe_sizes_int.remove(buy_int[0])
+            amount += buy_int[1]
+        else:
+            continue
 
+    print(f"The amount of money earned by Raghu is: ${amount}")
 
+if __name__ == "__main__":
+    get_sales_amount()
